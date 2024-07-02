@@ -1,5 +1,6 @@
-import AddProductForm from '@/components/add-product-form';
+import ProductForm from '@/components/form/product-form';
+import { addProduct } from '@/lib/actions';
 
 export default function Page() {
-  return <AddProductForm />;
+  return <ProductForm formAction={addProduct} initialData={null} />;
 }

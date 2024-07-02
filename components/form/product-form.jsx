@@ -2,9 +2,8 @@
 
 import Link from 'next/link';
 import { useFormState } from 'react-dom';
-import { LoaderCircle } from 'lucide-react';
 
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import {
   Card,
   CardHeader,
@@ -15,19 +14,18 @@ import {
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import SubmitButton from '@/components/submit-button';
 
 import { ChevronLeft } from 'lucide-react';
 
-import SubmitButton from '@/components/submit-button';
 import { cn } from '@/lib/utils';
-import { addProduct } from '@/lib/actions';
 
-export default function AddProductForm() {
-  const [state, formAction] = useFormState(addProduct, null);
+export default function ProductForm({ formAction, initialData }) {
+  const [state, action] = useFormState(formAction, initialData);
 
   return (
     <form
-      action={formAction}
+      action={action}
       className='grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8'
     >
       <div className='grid max-w-full flex-1 auto-rows-max gap-4'>
@@ -43,7 +41,7 @@ export default function AddProductForm() {
             <span className='sr-only'>Back</span>
           </Link>
           <h1 className='flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'>
-            Add Product
+            {initialData ? 'Edit Product' : 'Add Product'}
           </h1>
           <div className='hidden items-center gap-2 md:ml-auto md:flex'>
             <Link
@@ -74,6 +72,7 @@ export default function AddProductForm() {
                       type='text'
                       className='w-full'
                       placeholder='Product Name'
+                      defaultValue={initialData?.name}
                     />
                     <div
                       aria-live='polite'
@@ -91,6 +90,7 @@ export default function AddProductForm() {
                       type='number'
                       className='w-full'
                       placeholder='10000'
+                      defaultValue={initialData?.price}
                     />
                     <div
                       aria-live='polite'
@@ -108,6 +108,7 @@ export default function AddProductForm() {
                       type='text'
                       className='w-full'
                       placeholder='https://shopee.co.id/product'
+                      defaultValue={initialData?.shopeeUrl}
                     />
                     <div
                       aria-live='polite'
@@ -124,6 +125,7 @@ export default function AddProductForm() {
                       name='description'
                       placeholder='Product Description'
                       className='min-h-32'
+                      defaultValue={initialData?.description}
                     />
                     <div
                       aria-live='polite'
@@ -133,17 +135,19 @@ export default function AddProductForm() {
                       <p>{state?.error?.description}</p>
                     </div>
                   </div>
-                  <div className='grid gap-3'>
-                    <Label htmlFor='picture'>Picture</Label>
-                    <Input id='picture' name='picture' type='file' />
-                    <div
-                      aria-live='polite'
-                      aria-atomic='true'
-                      className='text-red-500 text-sm'
-                    >
-                      <p>{state?.error?.picture}</p>
+                  {!initialData?.imageUrl && (
+                    <div className='grid gap-3'>
+                      <Label htmlFor='picture'>Picture</Label>
+                      <Input id='picture' name='picture' type='file' />
+                      <div
+                        aria-live='polite'
+                        aria-atomic='true'
+                        className='text-red-500 text-sm'
+                      >
+                        <p>{state?.error?.picture}</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
