@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import {
   Card,
   CardHeader,
@@ -6,17 +8,15 @@ import {
   CardDescription,
   CardFooter,
 } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent } from '@/components/ui/tabs';
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
   Table,
   TableHeader,
@@ -26,13 +26,7 @@ import {
   TableCell,
 } from '@/components/ui/table';
 
-import {
-  ListFilter,
-  File,
-  PlusCircle,
-  Image,
-  MoreHorizontal,
-} from 'lucide-react';
+import { PlusCircle, Image, MoreHorizontal } from 'lucide-react';
 
 export default function Page() {
   return (
@@ -40,12 +34,15 @@ export default function Page() {
       <Tabs defaultValue='all'>
         <div className='flex items-center'>
           <div className='ml-auto flex items-center gap-2'>
-            <Button size='sm' className='h-8 gap-1'>
+            <Link
+              href='/products/add'
+              className={buttonVariants({ variant: 'default', size: 'sm' })}
+            >
               <PlusCircle className='h-3.5 w-3.5' />
               <span className='not-sr-only sm:whitespace-nowrap'>
                 Add Product
               </span>
-            </Button>
+            </Link>
           </div>
         </div>
         <TabsContent value='all'>
