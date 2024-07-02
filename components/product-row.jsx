@@ -10,8 +10,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { MoreHorizontal } from 'lucide-react';
+import DeleteProductButton from './delete-product-button';
 
-export default function ProductRow({ imageUrl, name, price, createdAt }) {
+export default function ProductRow({ id, imageUrl, name, price, createdAt }) {
   const date = createdAt.toLocaleString();
 
   return (
@@ -39,7 +40,7 @@ export default function ProductRow({ imageUrl, name, price, createdAt }) {
           <DropdownMenuContent align='end'>
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DeleteProductButton id={id} />
           </DropdownMenuContent>
         </DropdownMenu>
       </TableCell>

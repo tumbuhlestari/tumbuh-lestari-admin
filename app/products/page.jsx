@@ -71,6 +71,7 @@ export default async function Page() {
                   {products.map((product) => (
                     <ProductRow
                       key={product.id}
+                      id={product.id}
                       name={product.name}
                       imageUrl={product.imageUrl}
                       price={product.price}
