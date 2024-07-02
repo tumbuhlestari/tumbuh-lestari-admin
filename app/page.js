@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Package, BookText } from 'lucide-react';
 
-import { getTotalProducts, getTotalPosts } from '@/lib/db';
+import { getTotalProducts, getTotalPosts } from '@/lib/prisma';
 
 export default async function Page() {
   const totalProducts = await getTotalProducts();
