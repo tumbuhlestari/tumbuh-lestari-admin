@@ -15,7 +15,7 @@ export default function NotFound() {
           The product you are looking for does not exist.
         </p>
         <Link
-          href='/products'
+          href='/dashboard/products'
           className={cn(buttonVariants({ variant: 'default' }), 'mt-4')}
         >
           Back

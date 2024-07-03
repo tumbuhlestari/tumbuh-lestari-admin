@@ -18,26 +18,25 @@ import {
 } from '@/components/ui/table';
 
 import { PlusCircle } from 'lucide-react';
-import BlogRow from '@/components/blog-row';
+import ProductRow from '@/components/product-row';
 import { prisma } from '@/lib/prisma';
 
 export default async function Page() {
-  const blogs = await prisma.blogPosts.findMany({
+  const products = await prisma.products.findMany({
     orderBy: { createdAt: 'desc' },
   });
-
   return (
     <div className='grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8'>
       <Tabs defaultValue='all'>
         <div className='flex items-center'>
           <div className='ml-auto flex items-center gap-2'>
             <Link
-              href='/posts/add'
+              href='/dashboard/products/add'
               className={buttonVariants({ variant: 'default', size: 'sm' })}
             >
               <PlusCircle className='h-3.5 w-3.5' />
               <span className='not-sr-only sm:whitespace-nowrap'>
-                Create Post
+                Add Product
               </span>
             </Link>
           </div>
@@ -45,16 +44,22 @@ export default async function Page() {
         <TabsContent value='all'>
           <Card x-chunk='dashboard-06-chunk-0'>
             <CardHeader>
-              <CardTitle>Posts</CardTitle>
-              <CardDescription>Kelola postingan blog anda</CardDescription>
+              <CardTitle>Products</CardTitle>
+              <CardDescription>Kelola product anda</CardDescription>
             </CardHeader>
             <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Judul</TableHead>
+                    <TableHead className='hidden w-[100px] sm:table-cell'>
+                      <span className='sr-only'>Image</span>
+                    </TableHead>
+                    <TableHead>Name</TableHead>
                     <TableHead className='hidden md:table-cell'>
-                      Dibuat pada
+                      Price
+                    </TableHead>
+                    <TableHead className='hidden md:table-cell'>
+                      Created at
                     </TableHead>
                     <TableHead>
                       <span className='sr-only'>Actions</span>
@@ -62,12 +67,14 @@ export default async function Page() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {blogs.map((blog) => (
-                    <BlogRow
-                      key={blog.id}
-                      id={blog.id}
-                      title={blog.title}
-                      createdAt={blog.createdAt}
+                  {products.map((product) => (
+                    <ProductRow
+                      key={product.id}
+                      id={product.id}
+                      name={product.name}
+                      imageUrl={product.imageUrl}
+                      price={product.price}
+                      createdAt={product.createdAt}
                     />
                   ))}
                 </TableBody>

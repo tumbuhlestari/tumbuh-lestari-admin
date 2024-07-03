@@ -7,12 +7,15 @@ import { cn } from '@/lib/utils';
 
 export function NavLinks() {
   const pathname = usePathname();
+
   return (
     <>
       <Link
-        href='/'
+        href='/dashboard'
         className={cn(
-          pathname === '/' ? 'text-primary bg-muted' : 'text-muted-foreground',
+          pathname === '/dashboard'
+            ? 'text-primary bg-muted'
+            : 'text-muted-foreground',
           'flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary'
         )}
       >
@@ -20,9 +23,9 @@ export function NavLinks() {
         Home
       </Link>
       <Link
-        href='/products'
+        href='/dashboard/products'
         className={cn(
-          pathname === '/products'
+          pathname.startsWith('/dashboard/products')
             ? 'text-primary bg-muted'
             : 'text-muted-foreground',
           'flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary'
@@ -32,9 +35,9 @@ export function NavLinks() {
         Products
       </Link>
       <Link
-        href='/posts'
+        href='/dashboard/posts'
         className={cn(
-          pathname === '/posts'
+          pathname.startsWith('/dashboard/posts')
             ? 'text-primary bg-muted'
             : 'text-muted-foreground',
           'flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary'
@@ -54,12 +57,14 @@ export function NavLinksMobile() {
     <>
       <Link href='#' className='flex items-center gap-2 text-lg font-semibold'>
         <Package2 className='h-6 w-6' />
-        <span className='sr-only'>Acme Inc</span>
+        <span className='sr-only'>Tumbuh Lestari</span>
       </Link>
       <Link
-        href='/'
+        href='/dashboard'
         className={cn(
-          pathname === '/' ? 'text-primary bg-muted' : 'text-muted-foreground',
+          pathname === '/dashboard'
+            ? 'text-primary bg-muted'
+            : 'text-muted-foreground',
           'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground'
         )}
       >
@@ -67,9 +72,9 @@ export function NavLinksMobile() {
         Home
       </Link>
       <Link
-        href='/products'
+        href='/dashboard/products'
         className={cn(
-          pathname === '/products'
+          pathname.startsWith('/dashboard/products')
             ? 'text-primary bg-muted'
             : 'text-muted-foreground',
           'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground'
@@ -79,9 +84,9 @@ export function NavLinksMobile() {
         Products
       </Link>
       <Link
-        href='/posts'
+        href='/dashboard/posts'
         className={cn(
-          pathname === '/posts'
+          pathname.startsWith('/dashboard/posts')
             ? 'text-primary bg-muted'
             : 'text-muted-foreground',
           'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground'

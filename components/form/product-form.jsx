@@ -31,7 +31,7 @@ export default function ProductForm({ formAction, initialData }) {
       <div className='grid max-w-full flex-1 auto-rows-max gap-4'>
         <div className='flex items-center gap-4'>
           <Link
-            href={'/products'}
+            href={'/dashboard/products'}
             className={cn(
               buttonVariants({ variant: 'outline', size: 'icon' }),
               'c-7 h-7'
@@ -45,7 +45,7 @@ export default function ProductForm({ formAction, initialData }) {
           </h1>
           <div className='hidden items-center gap-2 md:ml-auto md:flex'>
             <Link
-              href='/products'
+              href='/dashboard/products'
               className={buttonVariants({ variant: 'outline', size: 'sm' })}
             >
               Discard
@@ -155,7 +155,7 @@ export default function ProductForm({ formAction, initialData }) {
         </div>
         <div className='flex items-center justify-center gap-2 md:hidden'>
           <Link
-            href='/products'
+            href='/dashboard/products'
             className={buttonVariants({ variant: 'outline', size: 'sm' })}
           >
             Discard
