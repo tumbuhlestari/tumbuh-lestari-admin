@@ -37,7 +37,7 @@ export default async function Page() {
             >
               <PlusCircle className='h-3.5 w-3.5' />
               <span className='not-sr-only sm:whitespace-nowrap'>
-                Create Post
+                Buat Postingan
               </span>
             </Link>
           </div>
@@ -45,7 +45,7 @@ export default async function Page() {
         <TabsContent value='all'>
           <Card x-chunk='dashboard-06-chunk-0'>
             <CardHeader>
-              <CardTitle>Posts</CardTitle>
+              <CardTitle>Postingan</CardTitle>
               <CardDescription>Kelola postingan blog anda</CardDescription>
             </CardHeader>
             <CardContent>

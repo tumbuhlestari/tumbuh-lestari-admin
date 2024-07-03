@@ -32,7 +32,7 @@ export function NavLinks() {
         )}
       >
         <Package className='h-4 w-4' />
-        Products
+        Produk
       </Link>
       <Link
         href='/dashboard/posts'
@@ -44,7 +44,7 @@ export function NavLinks() {
         )}
       >
         <LineChart className='h-4 w-4' />
-        Posts
+        Blog
       </Link>
     </>
   );
@@ -81,7 +81,7 @@ export function NavLinksMobile() {
         )}
       >
         <Package className='h-5 w-5' />
-        Products
+        Produk
       </Link>
       <Link
         href='/dashboard/posts'
@@ -93,7 +93,7 @@ export function NavLinksMobile() {
         )}
       >
         <LineChart className='h-5 w-5' />
-        Posts
+        Blog
       </Link>
     </>
   );

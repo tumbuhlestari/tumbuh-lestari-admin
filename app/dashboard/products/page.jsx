@@ -36,7 +36,7 @@ export default async function Page() {
             >
               <PlusCircle className='h-3.5 w-3.5' />
               <span className='not-sr-only sm:whitespace-nowrap'>
-                Add Product
+                Tambah Product
               </span>
             </Link>
           </div>
@@ -44,7 +44,7 @@ export default async function Page() {
         <TabsContent value='all'>
           <Card x-chunk='dashboard-06-chunk-0'>
             <CardHeader>
-              <CardTitle>Products</CardTitle>
+              <CardTitle>Produk</CardTitle>
               <CardDescription>Kelola product anda</CardDescription>
             </CardHeader>
             <CardContent>
@@ -52,17 +52,17 @@ export default async function Page() {
                 <TableHeader>
                   <TableRow>
                     <TableHead className='hidden w-[100px] sm:table-cell'>
-                      <span className='sr-only'>Image</span>
+                      <span className='sr-only'>Gambar</span>
                     </TableHead>
-                    <TableHead>Name</TableHead>
+                    <TableHead>Nama</TableHead>
                     <TableHead className='hidden md:table-cell'>
-                      Price
+                      Harga
                     </TableHead>
                     <TableHead className='hidden md:table-cell'>
-                      Created at
+                      Dibuat pada
                     </TableHead>
                     <TableHead>
-                      <span className='sr-only'>Actions</span>
+                      <span className='sr-only'>Aksi</span>
                     </TableHead>
                   </TableRow>
                 </TableHeader>

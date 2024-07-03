@@ -38,38 +38,40 @@ export default function BlogForm({ formAction, initialData }) {
             )}
           >
             <ChevronLeft className='h-4 w-4' />
-            <span className='sr-only'>Back</span>
+            <span className='sr-only'>Kembali</span>
           </Link>
           <h1 className='flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'>
-            {initialData ? 'Edit Blog Post' : 'Add Blog Post'}
+            {initialData ? 'Edit Postingan' : 'Tambah Postingan'}
           </h1>
           <div className='hidden items-center gap-2 md:ml-auto md:flex'>
             <Link
               href='/dashboard/posts'
               className={buttonVariants({ variant: 'outline', size: 'sm' })}
             >
-              Discard
+              Batal
             </Link>
-            <SubmitButton text='Save Post' />
+            <SubmitButton text='Simpan' />
           </div>
         </div>
         <div className='grid gap-4'>
           <div className='grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8'>
             <Card x-chunk='dashboard-07-chunk-0'>
               <CardHeader>
-                <CardTitle>Blog Post</CardTitle>
-                <CardDescription>Add blog post details.</CardDescription>
+                <CardTitle>Postingan Blog</CardTitle>
+                <CardDescription>
+                  Tambahkan detail postingan blog
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className='grid gap-6'>
                   <div className='grid gap-3'>
-                    <Label htmlFor='title'>Title</Label>
+                    <Label htmlFor='title'>Judul</Label>
                     <Input
                       id='title'
                       name='title'
                       type='text'
                       className='w-full'
-                      placeholder='Title of the Post'
+                      placeholder='Judul Postingan'
                       defaultValue={initialData?.title}
                     />
                     <div
@@ -81,11 +83,11 @@ export default function BlogForm({ formAction, initialData }) {
                     </div>
                   </div>
                   <div className='grid gap-3'>
-                    <Label htmlFor='content'>Content</Label>
+                    <Label htmlFor='content'>Konten</Label>
                     <Textarea
                       id='content'
                       name='content'
-                      placeholder='Write something...'
+                      placeholder='Tulis sesuatu...'
                       className='min-h-64'
                       defaultValue={initialData?.Content}
                     />
@@ -107,9 +109,9 @@ export default function BlogForm({ formAction, initialData }) {
             href='/dashboard/posts'
             className={buttonVariants({ variant: 'outline', size: 'sm' })}
           >
-            Discard
+            Batal
           </Link>
-          <SubmitButton text='Save Post' />
+          <SubmitButton text='Simpan' />
         </div>
       </div>
     </form>

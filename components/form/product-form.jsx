@@ -38,34 +38,34 @@ export default function ProductForm({ formAction, initialData }) {
             )}
           >
             <ChevronLeft className='h-4 w-4' />
-            <span className='sr-only'>Back</span>
+            <span className='sr-only'>Kembali</span>
           </Link>
           <h1 className='flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'>
-            {initialData ? 'Edit Product' : 'Add Product'}
+            {initialData ? 'Edit Produk' : 'Tambah Produk'}
           </h1>
           <div className='hidden items-center gap-2 md:ml-auto md:flex'>
             <Link
               href='/dashboard/products'
               className={buttonVariants({ variant: 'outline', size: 'sm' })}
             >
-              Discard
+              Batal
             </Link>
-            <SubmitButton text='Save Product' />
+            <SubmitButton text='Simpan' />
           </div>
         </div>
         <div className='grid gap-4'>
           <div className='grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8'>
             <Card x-chunk='dashboard-07-chunk-0'>
               <CardHeader>
-                <CardTitle>Product Details</CardTitle>
+                <CardTitle>Detail Produk</CardTitle>
                 <CardDescription>
-                  Add product details and images
+                  Tambahkan detail dan gambar produk
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className='grid gap-6'>
                   <div className='grid gap-3'>
-                    <Label htmlFor='name'>Name</Label>
+                    <Label htmlFor='name'>Nama</Label>
                     <Input
                       id='name'
                       name='name'
@@ -83,7 +83,7 @@ export default function ProductForm({ formAction, initialData }) {
                     </div>
                   </div>
                   <div className='grid gap-3'>
-                    <Label htmlFor='price'>Price</Label>
+                    <Label htmlFor='price'>Harga</Label>
                     <Input
                       id='price'
                       name='price'
@@ -101,7 +101,7 @@ export default function ProductForm({ formAction, initialData }) {
                     </div>
                   </div>
                   <div className='grid gap-3'>
-                    <Label htmlFor='shopeeUrl'>Shopee URL</Label>
+                    <Label htmlFor='shopeeUrl'>Link Shopee</Label>
                     <Input
                       id='shopeeUrl'
                       name='shopeeUrl'
@@ -119,7 +119,7 @@ export default function ProductForm({ formAction, initialData }) {
                     </div>
                   </div>
                   <div className='grid gap-3'>
-                    <Label htmlFor='description'>Description</Label>
+                    <Label htmlFor='description'>Deskripsi</Label>
                     <Textarea
                       id='description'
                       name='description'
@@ -137,7 +137,7 @@ export default function ProductForm({ formAction, initialData }) {
                   </div>
                   {!initialData?.imageUrl && (
                     <div className='grid gap-3'>
-                      <Label htmlFor='picture'>Picture</Label>
+                      <Label htmlFor='picture'>Gambar</Label>
                       <Input id='picture' name='picture' type='file' />
                       <div
                         aria-live='polite'
@@ -158,9 +158,9 @@ export default function ProductForm({ formAction, initialData }) {
             href='/dashboard/products'
             className={buttonVariants({ variant: 'outline', size: 'sm' })}
           >
-            Discard
+            Batal
           </Link>
-          <SubmitButton text='Save Product' />
+          <SubmitButton text='Simpan' />
         </div>
       </div>
     </form>

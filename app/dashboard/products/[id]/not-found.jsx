@@ -10,15 +10,17 @@ export default function NotFound() {
       x-chunk='dashboard-02-chunk-1'
     >
       <div className='flex flex-col items-center gap-1 text-center'>
-        <h3 className='text-2xl font-bold tracking-tight'>Product not found</h3>
+        <h3 className='text-2xl font-bold tracking-tight'>
+          Produk tidak ditemukan
+        </h3>
         <p className='text-sm text-muted-foreground'>
-          The product you are looking for does not exist.
+          Produk yang Anda cari tidak ditemukan.
         </p>
         <Link
           href='/dashboard/products'
           className={cn(buttonVariants({ variant: 'default' }), 'mt-4')}
         >
-          Back
+          Kembali
         </Link>
       </div>
     </div>

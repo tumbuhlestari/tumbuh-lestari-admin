@@ -7,7 +7,7 @@ export default function DeleteProductButton({ id }) {
   return (
     <form action={deleteProductById}>
       <DropdownMenuItem>
-        <button type='submit'>Delete</button>
+        <button type='submit'>Hapus</button>
       </DropdownMenuItem>
     </form>
   );
