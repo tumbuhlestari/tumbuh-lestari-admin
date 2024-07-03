@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { LoaderCircle } from 'lucide-react';
 import { useFormStatus } from 'react-dom';
 
-export default function SubmitButton() {
+export default function SubmitButton({ text }) {
   const { pending } = useFormStatus();
 
   return (
@@ -21,7 +21,7 @@ export default function SubmitButton() {
           'h-3.5 w-3.5'
         )}
       />
-      <span>Save Product</span>
+      <span>{text}</span>
     </Button>
   );
 }

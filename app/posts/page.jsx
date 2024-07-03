@@ -32,7 +32,7 @@ export default async function Page() {
         <div className='flex items-center'>
           <div className='ml-auto flex items-center gap-2'>
             <Link
-              href='/products/add'
+              href='/posts/add'
               className={buttonVariants({ variant: 'default', size: 'sm' })}
             >
               <PlusCircle className='h-3.5 w-3.5' />

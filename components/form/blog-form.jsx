@@ -20,7 +20,7 @@ import { ChevronLeft } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-export default function ProductForm({ formAction, initialData }) {
+export default function BlogForm({ formAction, initialData }) {
   const [state, action] = useFormState(formAction, initialData);
 
   return (
@@ -41,7 +41,7 @@ export default function ProductForm({ formAction, initialData }) {
             <span className='sr-only'>Back</span>
           </Link>
           <h1 className='flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'>
-            {initialData ? 'Edit Product' : 'Add Product'}
+            {initialData ? 'Edit Blog Post' : 'Add Blog Post'}
           </h1>
           <div className='hidden items-center gap-2 md:ml-auto md:flex'>
             <Link
@@ -50,104 +50,53 @@ export default function ProductForm({ formAction, initialData }) {
             >
               Discard
             </Link>
-            <SubmitButton text='Save Product' />
+            <SubmitButton text='Save Post' />
           </div>
         </div>
         <div className='grid gap-4'>
           <div className='grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8'>
             <Card x-chunk='dashboard-07-chunk-0'>
               <CardHeader>
-                <CardTitle>Product Details</CardTitle>
-                <CardDescription>
-                  Add product details and images
-                </CardDescription>
+                <CardTitle>Blog Post</CardTitle>
+                <CardDescription>Add blog post details.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className='grid gap-6'>
                   <div className='grid gap-3'>
-                    <Label htmlFor='name'>Name</Label>
+                    <Label htmlFor='title'>Title</Label>
                     <Input
-                      id='name'
-                      name='name'
+                      id='title'
+                      name='title'
                       type='text'
                       className='w-full'
-                      placeholder='Product Name'
-                      defaultValue={initialData?.name}
+                      placeholder='Title of the Post'
+                      defaultValue={initialData?.title}
                     />
                     <div
                       aria-live='polite'
                       aria-atomic='true'
                       className='text-red-500 text-sm'
                     >
-                      <p>{state?.error?.name}</p>
+                      <p>{state?.error?.title}</p>
                     </div>
                   </div>
                   <div className='grid gap-3'>
-                    <Label htmlFor='price'>Price</Label>
-                    <Input
-                      id='price'
-                      name='price'
-                      type='number'
-                      className='w-full'
-                      placeholder='10000'
-                      defaultValue={initialData?.price}
-                    />
-                    <div
-                      aria-live='polite'
-                      aria-atomic='true'
-                      className='text-red-500 text-sm'
-                    >
-                      <p>{state?.error?.price}</p>
-                    </div>
-                  </div>
-                  <div className='grid gap-3'>
-                    <Label htmlFor='shopeeUrl'>Shopee URL</Label>
-                    <Input
-                      id='shopeeUrl'
-                      name='shopeeUrl'
-                      type='text'
-                      className='w-full'
-                      placeholder='https://shopee.co.id/product'
-                      defaultValue={initialData?.shopeeUrl}
-                    />
-                    <div
-                      aria-live='polite'
-                      aria-atomic='true'
-                      className='text-red-500 text-sm'
-                    >
-                      <p>{state?.error?.shopeeUrl}</p>
-                    </div>
-                  </div>
-                  <div className='grid gap-3'>
-                    <Label htmlFor='description'>Description</Label>
+                    <Label htmlFor='content'>Content</Label>
                     <Textarea
-                      id='description'
-                      name='description'
-                      placeholder='Product Description'
-                      className='min-h-32'
-                      defaultValue={initialData?.description}
+                      id='content'
+                      name='content'
+                      placeholder='Write something...'
+                      className='min-h-64'
+                      defaultValue={initialData?.Content}
                     />
                     <div
                       aria-live='polite'
                       aria-atomic='true'
                       className='text-red-500 text-sm'
                     >
-                      <p>{state?.error?.description}</p>
+                      <p>{state?.error?.content}</p>
                     </div>
                   </div>
-                  {!initialData?.imageUrl && (
-                    <div className='grid gap-3'>
-                      <Label htmlFor='picture'>Picture</Label>
-                      <Input id='picture' name='picture' type='file' />
-                      <div
-                        aria-live='polite'
-                        aria-atomic='true'
-                        className='text-red-500 text-sm'
-                      >
-                        <p>{state?.error?.picture}</p>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </CardContent>
             </Card>
@@ -160,7 +109,7 @@ export default function ProductForm({ formAction, initialData }) {
           >
             Discard
           </Link>
-          <SubmitButton text='Save Product' />
+          <SubmitButton text='Save Post' />
         </div>
       </div>
     </form>
