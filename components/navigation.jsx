@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Bell, CircleUser, Menu, Package2, Search } from 'lucide-react';
+import { CircleUser, Menu, Search } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -15,9 +15,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-import { NavLinks, NavLinksMobile } from './nav-links';
+import { NavLinks, NavLinksMobile } from '@/components/nav-links';
+import LogoutButton from '@/components/logout-button';
+import { auth } from '@/auth';
 
-export default function Navigation({ children }) {
+export default async function Navigation({ children }) {
+  const session = await auth();
+
   return (
     <div className='grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]'>
       <div className='hidden border-r bg-muted/40 md:block'>
@@ -83,9 +87,11 @@ export default function Navigation({ children }) {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end'>
-              <DropdownMenuLabel>Admin</DropdownMenuLabel>
+              <DropdownMenuLabel>{session?.user?.name}</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>
+                <LogoutButton />
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
