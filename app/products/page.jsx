@@ -6,7 +6,6 @@ import {
   CardTitle,
   CardContent,
   CardDescription,
-  CardFooter,
 } from '@/components/ui/card';
 import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { buttonVariants } from '@/components/ui/button';
