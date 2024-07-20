@@ -5,6 +5,9 @@ export const publicRoutes = [
   '/api/posts/[id]',
 ];
 
+export const apiProductRoute = '/api/products';
+export const apiPostRoute = '/api/posts';
+
 export const authRoutes = ['/auth/login'];
 
 export const apiAuthPrefix = '/api/auth';
