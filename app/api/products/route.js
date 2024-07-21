@@ -19,10 +19,14 @@ export async function GET() {
   });
 
   if (!products) {
-    return NextResponse.json({ error: 'No products found' }, { status: 404 });
+    return NextResponse.json(
+      { error: 'No products found' },
+      { status: 404, headers: { 'Cache-Control': 'no-store, max-age=0' } }
+    );
   }
 
   return NextResponse.json(products, {
     status: 200,
+    headers: { 'Cache-Control': 'no-store, max-age=0' },
   });
 }
