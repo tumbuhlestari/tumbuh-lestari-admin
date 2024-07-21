@@ -1,18 +1,10 @@
-import { prisma } from '@/lib/prisma';
+import { getAllPosts } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
-  const posts = await prisma.blogPosts.findMany({
-    select: {
-      id: true,
-      title: true,
-      content: true,
-      createdAt: false,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-  });
+  const posts = await getAllPosts();
 
   if (!posts) {
     return NextResponse.json({ error: 'No posts found' }, { status: 404 });

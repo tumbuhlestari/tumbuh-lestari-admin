@@ -1,14 +1,12 @@
-import { prisma } from '@/lib/prisma';
+import { getPostById } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request, { params }) {
   const { id } = params;
 
-  const post = await prisma.blogPosts.findFirst({
-    where: {
-      id,
-    },
-  });
+  const post = await getPostById(id);
 
   if (!post) {
     return NextResponse.json({ error: 'Post not found' }, { status: 404 });
