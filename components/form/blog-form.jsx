@@ -99,6 +99,20 @@ export default function BlogForm({ formAction, initialData }) {
                       <p>{state?.error?.content}</p>
                     </div>
                   </div>
+
+                  {!initialData?.imageUrl && (
+                    <div className='grid gap-3'>
+                      <Label htmlFor='picture'>Gambar</Label>
+                      <Input id='picture' name='picture' type='file' />
+                      <div
+                        aria-live='polite'
+                        aria-atomic='true'
+                        className='text-red-500 text-sm'
+                      >
+                        <p>{state?.error?.picture}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>

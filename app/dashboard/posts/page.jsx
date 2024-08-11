@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   Card,
@@ -6,44 +6,44 @@ import {
   CardTitle,
   CardContent,
   CardDescription,
-} from '@/components/ui/card';
-import { Tabs, TabsContent } from '@/components/ui/tabs';
-import { buttonVariants } from '@/components/ui/button';
+} from "@/components/ui/card";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Table,
   TableHeader,
   TableRow,
   TableHead,
   TableBody,
-} from '@/components/ui/table';
+} from "@/components/ui/table";
 
-import { PlusCircle } from 'lucide-react';
-import BlogRow from '@/components/blog-row';
-import { prisma } from '@/lib/prisma';
+import { PlusCircle } from "lucide-react";
+import BlogRow from "@/components/blog-row";
+import { prisma } from "@/lib/prisma";
 
 export default async function Page() {
   const blogs = await prisma.blogPosts.findMany({
-    orderBy: { createdAt: 'desc' },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
-    <div className='grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8'>
-      <Tabs defaultValue='all'>
-        <div className='flex items-center'>
-          <div className='ml-auto flex items-center gap-2'>
+    <div className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+      <Tabs defaultValue="all">
+        <div className="flex items-center">
+          <div className="ml-auto flex items-center gap-2">
             <Link
-              href='/dashboard/posts/add'
-              className={buttonVariants({ variant: 'default', size: 'sm' })}
+              href="/dashboard/posts/add"
+              className={buttonVariants({ variant: "default", size: "sm" })}
             >
-              <PlusCircle className='h-3.5 w-3.5' />
-              <span className='not-sr-only sm:whitespace-nowrap'>
+              <PlusCircle className="h-3.5 w-3.5" />
+              <span className="not-sr-only sm:whitespace-nowrap">
                 Buat Postingan
               </span>
             </Link>
           </div>
         </div>
-        <TabsContent value='all'>
-          <Card x-chunk='dashboard-06-chunk-0'>
+        <TabsContent value="all">
+          <Card x-chunk="dashboard-06-chunk-0">
             <CardHeader>
               <CardTitle>Postingan</CardTitle>
               <CardDescription>Kelola postingan blog anda</CardDescription>
@@ -53,11 +53,11 @@ export default async function Page() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Judul</TableHead>
-                    <TableHead className='hidden md:table-cell'>
+                    <TableHead className="hidden md:table-cell">
                       Dibuat pada
                     </TableHead>
                     <TableHead>
-                      <span className='sr-only'>Actions</span>
+                      <span className="sr-only">Actions</span>
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -67,6 +67,7 @@ export default async function Page() {
                       key={blog.id}
                       id={blog.id}
                       title={blog.title}
+                      imageUrl={blog.imageUrl}
                       createdAt={blog.createdAt}
                     />
                   ))}
